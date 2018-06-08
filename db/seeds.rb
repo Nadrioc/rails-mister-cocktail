@@ -1,24 +1,38 @@
-require "open-uri"
-require "json"
 
-puts 'Cleaning database...'
-Ingredient.destroy_all
+require 'open-uri'
+
+p "Cleaning database..."
 Cocktail.destroy_all
+Dose.destroy_all
 
-url1 = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-ingredient_serialized = open(url1).read
-ingredient = JSON.parse(ingredient_serialized)
+p "Adding shit"
 
-ingredient['drinks'].each do |i|
-  Ingredient.create!( name: i['strIngredient1'])
+url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
+
+json_hash = JSON.parse(open(url).read)
+
+json_hash['drinks'].each do |drink|
+  cocktail = Cocktail.create!({
+    name: drink['strDrink'],
+    image: drink["strDrinkThumb"],
+  })
+  jh = JSON.parse(open("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{drink["idDrink"]}").read)
+  drink = jh["drinks"][0]
+  i = 1
+  while i <= 15
+    ing_name = drink["strIngredient#{i}"]
+    desc = drink["strMeasure#{i}"]
+    break if ing_name == ""
+    ingredient = Ingredient.find_by(name: ing_name)
+    if ingredient
+      Dose.create!({
+        cocktail: cocktail,
+        ingredient: ingredient,
+        description: desc,
+      })
+    end
+    i += 1
+  end
 end
 
-url2 = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
-cocktail_serialized = open(url2).read
-cocktail = JSON.parse(cocktail_serialized)
-
-cocktail['drinks'].each do |i|
-  Cocktail.create!( name: i['strDrink'])
-end
-
-puts 'Finished!'
+p "Finished!"

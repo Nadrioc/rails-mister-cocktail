@@ -1,0 +1,80 @@
+.mister-logo{
+  font-family: 'Goudy Bookletter 1911', serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+}
+
+.logo{
+  background-image: asset-url('mister-cocktail.png');
+  background-size: cover;
+  height: 200px;
+  color: black
+}
+
+.mister-logo:hover{
+  text-decoration: none;
+  color: black;
+}
+.mister-logo:visited{
+  text-decoration: none;
+  color: black;
+}
+
+.mister-nav-item{
+  text-decoration: none;
+  color: black;
+}
+.mister-nav-item:hover{
+  text-decoration: none;
+  color: black;
+}
+.mister-nav-item:visited{
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  justify-content: space-between;
+}
+
+.nc-center {
+  padding-right: 130px;
+}
+
+.mister-nav-item {
+  cursor: pointer;
+  padding: 25px 30px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 19px;
+}
+
+.navbar-wagon {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: white;
+  transition: all 0.3s ease;
+  height: 70px;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+}
+
+
+/* Basic navbar item */
+
+/* Navbar link */
+.navbar-wagon-link {
+  color: #616668;
+  font-size: 14px;
+}
+.navbar-wagon-link:hover {
+  color: #da552f;
+  text-decoration: none;
+}

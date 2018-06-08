@@ -1,13 +1,32 @@
-<h1>Mister Cocktail</h1>
 
-<ul>
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.anduzzis.com/wp-content/uploads/moscow-mule-1-1200x400.jpg');">
+
+  <div class="banner-content">
+    <h1>Cocktail Recipies</h1>
+    <p>Find the perfect cocktail recipe here</p>
+  </div>
+</div>
+<div class="padded-space"></div>
+<h4 class="divider ">
+  <span class="sans">Classic Cocktails</span>
+</h4>
+<div class="padded-space"></div>
 <% @cocktails.each do |cocktail| %>
-  <li>
-    <%= link_to cocktail.name, cocktail_path(cocktail) %>
-  </li>
+<div class="col-xs-12 col-sm-3">
+  <%= link_to cocktail_path(cocktail) do %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cocktail.image %>);">
+    <div class="card-description">
+      <h2><%= cocktail.name %></h2>
+    </div>
+  </div>
+  <% end %>
+</div>
 <% end %>
-</ul>
+
+
 
 <h1>
-<%= link_to "Add a new cocktail", new_cocktail_path %>
+  <%= link_to "Add a new cocktail", new_cocktail_path %>
 </h1>
+
