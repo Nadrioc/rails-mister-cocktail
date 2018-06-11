@@ -1,45 +1,44 @@
-
-
-
 <div class="header">
   <h2><%= @cocktail.name %></h2>
 </div>
 
 <div class="container container-cocktail-main">
  <div class="row">
-  <div class="col-xs-12 col-sm-7 col-md-8">
-  <%= image_tag @cocktail.image, class: "img-responsive" %>
+  <div class="col-xs-12 col-sm-7">
+    <%= image_tag @cocktail.image, class: "img-responsive" %>
   </div>
   <div class="col-xs-12 col-sm-5 col-md-4 description-container">
-      <ul>
-        <% @cocktail.doses.each do |dose| %>
-        <li>
-          <%= dose.description %>
-          <%= dose.ingredient.name %>
-          <%= link_to dose_path(dose), method: :delete do %>
-            <i class="fas fa-trash grey small"></i>
-          <% end %>
-        </li>
+    <h4 class="divider ">
+      <span class="sans">Ingredients</span>
+    </h4>
+    <ul>
+      <% @cocktail.doses.each do |dose| %>
+      <li class="show-font">
+        <%= dose.description %>
+        <%= dose.ingredient.name %>
+        <%= link_to dose_path(dose), method: :delete do %>
+        <i class="fas fa-times grey small"></i>
         <% end %>
-      </ul>
+      </li>
+      <% end %>
+    </ul>
+    <%= link_to new_cocktail_dose_path(@cocktail), :id => 'login', "data-toggle" => "modal", 'data-target' => '#exampleModal' do %>
+      <div class="padded">
+        <h3 class="show-font show-button add-button">Add Ingredient</h3>
+      </div>
+    <% end %>
+      <%= link_to cocktail_path(@cocktail),
+  method: :delete,
+  data: { confirm: "Are you sure?" } do %>
+  <div class="padded">
+    <h3 class="show-font delete-button show-button">Delete Cocktail</h3>
+  </div>
+  <% end %>
   </div>
 </div>
 </div>
 
-<div class="padded-space"></div>
 
-<div class="edit-container">
-<%= link_to cocktail_path(@cocktail),
-method: :delete,
-data: { confirm: "Are you sure?" } do %>
-<div class="padded">
-  <i class="fas fa-trash grey"></i>
-</div>
-<% end %>
-<%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class: "padded" %>
-<%= link_to "Go Back", cocktails_path, class: "padded" %>
-
-</div>
 
 
 

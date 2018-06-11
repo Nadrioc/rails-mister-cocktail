@@ -14,3 +14,5 @@
 //= require activestorage
 
 //= require_tree .
+
+$('#myModal').modal(options)

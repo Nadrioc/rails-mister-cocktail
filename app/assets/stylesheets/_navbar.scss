@@ -27,7 +27,7 @@
 }
 .mister-nav-item:hover{
   text-decoration: none;
-  color: black;
+  color: #575A5C;
 }
 .mister-nav-item:visited{
   text-decoration: none;
@@ -39,6 +39,11 @@
   align-items: center;
   padding-bottom: 15px;
   justify-content: space-between;
+}
+
+.navbar-container i:hover{
+  text-decoration: none;
+  color: #575A5C;
 }
 
 .nc-center {

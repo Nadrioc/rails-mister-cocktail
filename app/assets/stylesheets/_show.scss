@@ -10,25 +10,60 @@
   font-family: 'Goudy Bookletter 1911', serif;
 }
 
-
-
 .description-container {
   // background-color: white;
   line-height: 3;
 }
 
-li{
+.show-font{
   list-style-type: none;
   font-size: 24px;
   font-family: 'Oswald', sans-serif;
+  color: black;
+}
+
+.show-button{
+  border: 1px solid #575a5c59;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 60%;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.add-button{
+  color: #808080;
+}
+
+.add-button:hover{
+  background-color: #114773;
+  color: white;
+}
+
+.delete-button {
+  color: #950814;
+}
+
+.delete-button:hover{
+  color: white;
+  background-color: #950814;
+}
+
+a:-webkit-any-link{
+  text-decoration: none;
 }
 
 .grey{
-  color: grey;
+  color: gray;
+}
+
+.grey:hover{
+  color: #950814;
 }
 
 .small{
-  font-size: 14px;
+  font-size: 18px;
   padding-left: 10px;
 }
 
